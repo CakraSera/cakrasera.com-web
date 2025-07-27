@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "gang of three";
+  src: url("../fonts/go3v2.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "Anime Ace";
+  src: url("../fonts/animeace2bb_tt/animeace2_reg.ttf");
+}
+
+:root {
+  --primary-color: #1c3330;
+  --secondary-color: #c35532;
+  --third-color: #e0e0e0;
+}

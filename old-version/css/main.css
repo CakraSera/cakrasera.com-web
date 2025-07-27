@@ -1,0 +1,264 @@
+@import "variables.css";
+@import "base.css";
+@import "components.css";
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 3rem;
+}
+
+.container {
+  margin-bottom: 2rem;
+}
+
+.hero {
+  background: var(--primary-color);
+  /* display: flex;
+  gap: 0 3rem; */
+  margin: 0 3rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+}
+
+.hero h2,
+.hero h3,
+.hero h4 {
+  font-family: "Anime Ace", sans-serif;
+  color: var(--third-color);
+}
+
+.hero li {
+  color: var(--third-color);
+}
+
+.hero img {
+  border-radius: 20px;
+}
+
+.hero .hero-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  height: auto;
+  padding: 0.5rem 0;
+}
+
+.hero .hero-header nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero .hero-header nav ul li {
+  list-style: none;
+  text-align: center;
+}
+
+.hero .hero-header nav ul li i {
+  color: var(--third-color);
+  margin: auto 0;
+  font-size: 2.5rem;
+}
+.hero .hero-header nav ul li a {
+  text-decoration: none;
+}
+
+nav[aria-label="User Social Media"] {
+  margin-top: 8px;
+}
+
+nav[aria-label="User Social Media"] li:hover {
+  transform: translateY(-5px);
+}
+
+nav[aria-label="User Social Media"] a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero .hero-header nav ul li a p {
+  margin-top: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  font-family: "quicksand", sans-serif;
+}
+
+.hero .hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero .hero-content h2 {
+  font-size: 1rem;
+}
+
+.hero .hero-content h3 {
+  font-size: 2rem;
+}
+
+.hero .hero-content h4 {
+  font-size: 1.5rem;
+}
+
+.tech-stacks {
+  margin-top: 0.5rem;
+}
+
+.tech-stacks h4 {
+  font-size: 1rem !important;
+}
+
+.tech-stacks ul {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.tech-stacks ul li {
+  list-style: none;
+  background-color: var(--secondary-color);
+  color: var(--third-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.work-experience h2,
+.work-experience h3,
+.work-experience h4 {
+  color: var(--primary-color);
+  font-family: "Anime Ace", sans-serif;
+}
+
+.work-experience p,
+.work-experience li {
+  color: var(--primary-color);
+}
+
+.work-experience h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.work-experience .work-experience-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.work-experience .work-experience-content .work-experience-item {
+  border-radius: 20px;
+  border: #1c3330 1px solid;
+  padding: 16px;
+  /* width: 50%; */
+}
+
+/* .work-experience .work-experience-content .work-experience-item .card-body,
+.work-experience .work-experience-content .work-experience-detail {
+  margin-top: 1rem;
+} */
+
+.work-experience-detail ul {
+  margin-left: 1rem;
+}
+
+.filter-buttons {
+  margin-bottom: 1rem;
+}
+
+.filter-buttons .filter-btn {
+  font-family: "Anime Ace", sans-serif !important;
+  font-weight: bold;
+  margin-bottom: 8px;
+  background-color: transparent;
+  border-radius: 20px;
+  border: 2px solid var(--primary-color);
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.filter-buttons .filter-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--third-color);
+  border-color: var(--third-color);
+}
+
+.project-list .all-projects {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 1rem;
+}
+
+.all-projects a {
+  text-decoration: none;
+}
+
+.project-list .project-card {
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color);
+  color: var(--third-color);
+}
+
+.project-list .project-img {
+  height: 200px;
+  overflow: hidden;
+  background-color: #a6d8e2; /* Light blue background for images */
+}
+
+.project-list .project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.project-card h2,
+.project-card p {
+  color: var(--third-color);
+}
+
+.card-content {
+  padding: 16px 8px;
+}
+
+.project-card .card-content h2 {
+  font-family: "Anime Ace", sans-serif !important;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.project-list .tech-stacks {
+  margin-top: 4px !important;
+}
+
+.project-list .tech-stacks ul li {
+  width: fit-content;
+  justify-self: center;
+  text-align: center;
+  background-color: var(--third-color);
+  color: var(--primary-color);
+}
+
+.card-content button {
+  margin-top: 8px;
+  font-family: "Anime Ace", sans-serif !important;
+  background-color: var(--secondary-color);
+  color: var(--third-color);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.card-content button:hover {
+  background-color: var(--third-color);
+  color: var(--secondary-color);
+}
