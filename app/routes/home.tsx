@@ -113,7 +113,7 @@ export default function Home() {
           <div className="flex justify-center md:w-1/2 md:justify-end">
             <div className="border-primary/20 relative h-64 w-64 overflow-hidden rounded-full border-4 sm:h-72 sm:w-72 md:h-80 md:w-80">
               <img
-                src="/public/assets/images/web-profile-img.jpg?height=320&width=320"
+                src="/assets/images/web-profile-img.jpg?height=320&width=320"
                 alt="Developer portrait"
                 className="object-cover"
               />

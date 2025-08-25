@@ -80,7 +80,7 @@ export const projectsData: Project[] = [
     ],
     category: "Frontend",
     tags: ["JavaScript", "Tailwind CSS", "LocalStorage", "Responsive Design"],
-    image: "/public/assets/images/projects/address-book.png",
+    image: "/assets/images/projects/address-book.png",
     liveLink: "https://address-book.cakrasera.com",
     githubLink: "https://github.com/CakraSera/address-book",
     features: [
@@ -103,11 +103,11 @@ export const projectsData: Project[] = [
     ],
     screenshots: [
       {
-        src: "/public/assets/images/projects/address-book-1.png",
+        src: "/assets/images/projects/address-book-1.png",
         alt: "Contact list view",
       },
       {
-        src: "/public/assets/images/projects/address-book-2.png",
+        src: "/assets/images/projects/address-book-2.png",
         alt: "Contact detail view",
       },
     ],
@@ -124,7 +124,7 @@ export const projectsData: Project[] = [
     ],
     category: "Frontend",
     tags: ["React", "Drag and Drop", "Tailwind CSS", "State Management"],
-    image: "/public/assets/images/projects/kanban-board.png",
+    image: "/assets/images/projects/kanban-board.png",
     liveLink: "https://kanban-board.cakrasera.com",
     githubLink: "https://github.com/CakraSera/kanban",
     features: [
@@ -149,11 +149,11 @@ export const projectsData: Project[] = [
     ],
     screenshots: [
       {
-        src: "/public/assets/images/projects/kanban-1.png",
+        src: "/assets/images/projects/kanban-1.png",
         alt: "Main board view",
       },
       {
-        src: "/public/assets/images/projects/kanban-2.png",
+        src: "/assets/images/projects/kanban-2.png",
         alt: "Task detail modal",
       },
     ],
@@ -175,7 +175,7 @@ export const projectsData: Project[] = [
       "Community Platform",
       "Responsive Design",
     ],
-    image: "/public/assets/images/projects/narai-coder.jpg",
+    image: "/assets/images/projects/narai-coder.jpg",
     liveLink: "https://naraicoder.org",
     githubLink: "https://github.com/Hayolox/NaraiCoder",
     features: [
@@ -200,11 +200,11 @@ export const projectsData: Project[] = [
     ],
     screenshots: [
       {
-        src: "/public/assets/images/projects/narai-1.jpg",
+        src: "/assets/images/projects/narai-1.jpg",
         alt: "Community homepage",
       },
       {
-        src: "/public/assets/images/projects/narai-2.jpg",
+        src: "/assets/images/projects/narai-2.jpg",
         alt: "Article detail page",
       },
     ],
