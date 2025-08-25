@@ -19,6 +19,7 @@ import {
   ExternalLink,
   Eye,
 } from "lucide-react";
+import { format } from "date-fns";
 
 import { Button } from "~/components/ui/button";
 import { Badge } from "~/components/ui/badge";
@@ -26,6 +27,7 @@ import { Badge } from "~/components/ui/badge";
 import type { Route } from "./+types/home";
 import { projectsData } from "~/data/projects";
 import { Card, CardContent } from "~/components/ui/card";
+import { WorkExperience } from "~/data/work-experience";
 
 // Map skill names to Lucide React icons
 const skillIcons: { [key: string]: React.ElementType } = {
@@ -88,8 +90,7 @@ export default function Home() {
                 href="https://github.com/CakraSera"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
+                className="text-muted-foreground hover:text-foreground transition-colors">
                 <Github className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </a>
@@ -97,15 +98,13 @@ export default function Home() {
                 href="https://www.linkedin.com/in/rakhelcakrakusumadinatasera/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
+                className="text-muted-foreground hover:text-foreground transition-colors">
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </a>
               <a
                 href="mailto:hello@example.com"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
+                className="text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="h-6 w-6" />
                 <span className="sr-only">Email</span>
               </a>
@@ -137,52 +136,29 @@ export default function Home() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="bg-background rounded-lg border p-6 shadow-sm">
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 rounded-full p-3">
-                    <Briefcase className="text-primary h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold">
-                      Junior Frontend Developer
-                    </h3>
-                    <p className="text-primary font-medium">
-                      TechStart Solutions
-                    </p>
-                    <p className="text-muted-foreground mb-2 text-sm">
-                      June 2023 - Present
-                    </p>
-                    <p className="text-sm">
-                      Developing responsive web applications using React and
-                      Next.js, collaborating with senior developers on feature
-                      implementation.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-background rounded-lg border p-6 shadow-sm">
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 rounded-full p-3">
-                    <Briefcase className="text-primary h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold">
-                      Web Development Intern
-                    </h3>
-                    <p className="text-primary font-medium">
-                      Digital Innovations Agency
-                    </p>
-                    <p className="text-muted-foreground mb-2 text-sm">
-                      May 2022 - August 2022
-                    </p>
-                    <p className="text-sm">
-                      Assisted in developing client websites, created responsive
-                      layouts, and learned version control workflows.
-                    </p>
+              {WorkExperience.map((record) => (
+                <div className="bg-background rounded-lg border p-6 shadow-sm">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 rounded-full p-3">
+                      <Briefcase className="text-primary h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold">
+                        Web Development Intern
+                        {record.position}
+                      </h3>
+                      <p className="text-primary font-medium">
+                        {record.companyName}
+                      </p>
+                      <p className="text-muted-foreground mb-2 text-sm">
+                        {format(record.startDate, "MMM yyyy")} -
+                        {format(record.endDate, "MMM yyyy")}
+                      </p>
+                      <p className="text-sm">{record.jobDescription[0]}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
 
             <div className="pt-4 text-center">
@@ -220,8 +196,7 @@ export default function Home() {
               return (
                 <div
                   key={index}
-                  className="bg-background flex flex-col items-center rounded-lg border p-6 text-center shadow-sm"
-                >
+                  className="bg-background flex flex-col items-center rounded-lg border p-6 text-center shadow-sm">
                   {Icon && <Icon className="text-primary mb-3 h-8 w-8" />}
                   <h3 className="text-lg font-medium">{skill}</h3>
                 </div>
@@ -252,8 +227,7 @@ export default function Home() {
             {projectsData.map((project) => (
               <Card
                 key={project.slug}
-                className="group bg-background overflow-hidden rounded-lg border shadow-sm"
-              >
+                className="group bg-background overflow-hidden rounded-lg border shadow-sm">
                 <Link to={`/projects/${project.slug}`}>
                   <div className="relative h-48 w-full overflow-hidden">
                     <img
@@ -284,13 +258,11 @@ export default function Home() {
                       variant="outline"
                       size="sm"
                       asChild
-                      className="gap-1 bg-transparent"
-                    >
+                      className="gap-1 bg-transparent">
                       <a
                         href={project.liveLink}
                         target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                        rel="noopener noreferrer">
                         <ExternalLink className="mr-1 h-4 w-4" /> Live Demo
                       </a>
                     </Button>
@@ -300,13 +272,11 @@ export default function Home() {
                       variant="outline"
                       size="sm"
                       asChild
-                      className="gap-1 bg-transparent"
-                    >
+                      className="gap-1 bg-transparent">
                       <a
                         href={project.githubLink}
                         target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                        rel="noopener noreferrer">
                         <Github className="mr-1 h-4 w-4" /> GitHub
                       </a>
                     </Button>
@@ -315,8 +285,7 @@ export default function Home() {
                     variant="outline"
                     size="sm"
                     asChild
-                    className="gap-1 bg-transparent"
-                  >
+                    className="gap-1 bg-transparent">
                     <Link to={`/projects/${project.slug}`}>
                       <Eye /> View Detail
                     </Link>

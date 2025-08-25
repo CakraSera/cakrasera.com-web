@@ -2,6 +2,7 @@ import { NavLink } from "react-router";
 import { Button } from "~/components/ui/button";
 import { ModeToggle } from "./mode-toggle";
 import { MobileNav } from "./mobile-nav";
+import { NavigationLink } from "~/data/data";
 
 export function Header() {
   return (
@@ -15,26 +16,18 @@ export function Header() {
           </NavLink>
         </div>
         <nav className="hidden gap-6 md:flex">
-          <NavLink to="/" className={`text-sm font-medium transition-colors`}>
-            Home
-          </NavLink>
+          {NavigationLink.map((navigation) => (
+            <NavLink
+              to={navigation.to}
+              className={`text-sm font-medium transition-colors`}>
+              {navigation.title}
+            </NavLink>
+          ))}
           {/* <NavLink
             to="/about"
             className={`text-sm font-medium transition-colors`}>
             About
           </NavLink> */}
-          <NavLink
-            to="/projects"
-            className={`text-sm font-medium transition-colors`}
-          >
-            Projects
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={`text-sm font-medium transition-colors`}
-          >
-            Contact
-          </NavLink>
         </nav>
         <div className="flex items-center gap-2">
           <ModeToggle />

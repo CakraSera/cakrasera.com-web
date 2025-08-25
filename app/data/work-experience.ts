@@ -1,6 +1,20 @@
-export const workExperience = [
+type WorkExperienceItem = {
+  id: string;
+  companyName: string;
+  position: string;
+  logo: string;
+  startDate: Date;
+  endDate: Date;
+  technologies: {
+    name: string;
+    icon: string;
+  }[];
+  jobDescription: string[];
+};
+
+export const WorkExperience: WorkExperienceItem[] = [
   {
-    id: 1,
+    id: "dlfslfsd",
     companyName: "DataOn (PT Indodev Niaga Internet)",
     position: "Implementation Consultant Jr",
     logo: "./images/dataon-logo.png",
@@ -24,7 +38,7 @@ export const workExperience = [
     ],
   },
   {
-    id: 2,
+    id: "kdlgkndfklgndl",
     companyName: "PT. QATROS TEKNOLOGI NUSANTARA",
     position: "Frontend Web Engineer",
     logo: "./images/qatros-logo.png",
