@@ -47,7 +47,7 @@ const skillIcons: { [key: string]: React.ElementType } = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Portfolio - Fullstack Web Developer" },
+    { title: "Home - Rakhel Cakra K.Sera" },
     {
       name: "description",
       content:
@@ -143,10 +143,7 @@ export default function Home() {
                       <Briefcase className="text-primary h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold">
-                        Web Development Intern
-                        {record.position}
-                      </h3>
+                      <h3 className="text-lg font-bold">{record.position}</h3>
                       <p className="text-primary font-medium">
                         {record.companyName}
                       </p>

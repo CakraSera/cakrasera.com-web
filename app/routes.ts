@@ -12,4 +12,5 @@ export default [
     route(":slug", "routes/projects-detail.tsx"),
   ]),
   route("contact", "routes/contact.tsx"),
+  route("admin", "routes/admin/index.tsx"),
 ] satisfies RouteConfig;
