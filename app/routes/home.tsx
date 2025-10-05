@@ -67,7 +67,7 @@ export default function Home() {
               Open to opportunities
             </Badge>
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-              Hi, I'm <span className="text-primary">Cakra</span>
+              Hi, I'm <span className="text-primary">Cakra 👋</span>
               <br />
               Fullstack Web Developer
             </h1>
@@ -183,11 +183,18 @@ export default function Home() {
               "HTML & CSS",
               "JavaScript",
               "React",
+              "React Router Framework v7",
               "Node.js",
-              "Next.js",
+              "Express",
+              "Hono Js",
+              "Golang",
+              "Vue.js",
+              "Nuxt.js",
               "TypeScript",
               "Tailwind CSS",
               "MongoDB",
+              "MySQL",
+              "PostgreSQL",
             ].map((skill, index) => {
               const Icon = skillIcons[skill] || Code; // Fallback to Code icon if specific not found
               return (
