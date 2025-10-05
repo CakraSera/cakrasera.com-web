@@ -17,15 +17,7 @@ import {
   Globe,
 } from "lucide-react";
 
-export type ProjectCategory =
-  | "All"
-  | "Fullstack"
-  | "Frontend"
-  | "Backend"
-  | "Mobile"
-  | "Learning"
-  | "Bootcamp"
-  | "Other";
+export type ProjectCategory = "All" | "Fullstack" | "Frontend" | "Backend";
 
 export interface Project {
   slug: string;
