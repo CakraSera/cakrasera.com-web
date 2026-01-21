@@ -23,27 +23,21 @@ import { format } from "date-fns";
 
 import { Button } from "~/components/ui/button";
 import { Badge } from "~/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "~/components/ui/carousel";
 
 import type { Route } from "./+types/home";
-import { projectsData } from "~/data/projects";
+import { featuredProjectsSlugs, projectsData } from "~/data/projects";
 import { Card, CardContent } from "~/components/ui/card";
 import { WorkExperience } from "~/data/work-experience";
 
 // Map skill names to Lucide React icons
-const skillIcons: { [key: string]: React.ElementType } = {
-  "HTML & CSS": Code,
-  JavaScript: Code,
-  React: Atom,
-  "Node.js": Server,
-  "Next.js": Zap,
-  TypeScript: Type,
-  "Tailwind CSS": Palette,
-  MongoDB: Database,
-  Express: Server,
-  Git: GitBranch,
-  "Responsive Design": Smartphone,
-  "API Integration": Plug,
-};
+import { skillIcons } from "~/lib/projects";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -90,7 +84,8 @@ export default function Home() {
                 href="https://github.com/CakraSera"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors">
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
                 <Github className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </a>
@@ -98,13 +93,15 @@ export default function Home() {
                 href="https://www.linkedin.com/in/rakhelcakrakusumadinatasera/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors">
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </a>
               <a
                 href="mailto:hello@example.com"
-                className="text-muted-foreground hover:text-foreground transition-colors">
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
                 <Mail className="h-6 w-6" />
                 <span className="sr-only">Email</span>
               </a>
@@ -178,34 +175,40 @@ export default function Home() {
               Technologies I've been working with recently.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {[
-              "HTML & CSS",
-              "JavaScript",
-              "React",
-              "React Router Framework v7",
-              "Node.js",
-              "Express",
-              "Hono Js",
-              "Golang",
-              "Vue.js",
-              "Nuxt.js",
-              "TypeScript",
-              "Tailwind CSS",
-              "MongoDB",
-              "MySQL",
-              "PostgreSQL",
-            ].map((skill, index) => {
-              const Icon = skillIcons[skill] || Code; // Fallback to Code icon if specific not found
-              return (
-                <div
-                  key={index}
-                  className="bg-background flex flex-col items-center rounded-lg border p-6 text-center shadow-sm">
-                  {Icon && <Icon className="text-primary mb-3 h-8 w-8" />}
-                  <h3 className="text-lg font-medium">{skill}</h3>
-                </div>
-              );
-            })}
+          <div className="mx-auto px-12">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {[
+                  "React",
+                  "Next.js",
+                  "TypeScript",
+                  "Hono Js",
+                  "Tailwind CSS",
+                  "PostgreSQL",
+                ].map((skill, index) => {
+                  const Icon = skillIcons[skill] || Code; // Fallback to Code icon if specific not found
+                  return (
+                    <CarouselItem
+                      key={index}
+                      className="md:basis-1/3 lg:basis-1/4"
+                    >
+                      <div className="bg-background flex flex-col items-center rounded-lg border p-6 text-center shadow-sm h-full justify-center">
+                        {Icon && <Icon className="text-primary mb-3 h-8 w-8" />}
+                        <h3 className="text-lg font-medium">{skill}</h3>
+                      </div>
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
           <div className="pt-4 text-center">
             <Button variant="outline" asChild>
@@ -228,75 +231,83 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projectsData.map((project) => (
-              <Card
-                key={project.slug}
-                className="group bg-background overflow-hidden rounded-lg border shadow-sm">
-                <Link to={`/projects/${project.slug}`}>
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      className="object-cover transition-transform group-hover:scale-105"
-                    />
-                  </div>
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="space-y-4">
-                      <h3 className="text-xl font-bold">{project.title}</h3>
-                      <p className="text-muted-foreground text-sm">
-                        {project.shortDescription}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, tagIndex) => (
-                          <Badge key={tagIndex} variant="secondary">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
+            {projectsData
+              .filter((project) => featuredProjectsSlugs.includes(project.slug))
+              .map((project) => (
+                <Card
+                  key={project.slug}
+                  className="group bg-background overflow-hidden rounded-lg border shadow-sm"
+                >
+                  <Link to={`/projects/${project.slug}`}>
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <img
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        className="object-cover transition-transform group-hover:scale-105"
+                      />
                     </div>
-                  </CardContent>
-                </Link>
-                <div className="flex flex-wrap gap-3 p-4 pt-0">
-                  {project.liveLink && (
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-bold">{project.title}</h3>
+                        <p className="text-muted-foreground text-sm">
+                          {project.shortDescription}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag, tagIndex) => (
+                            <Badge key={tagIndex} variant="secondary">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Link>
+                  <div className="flex flex-wrap gap-3 p-4 pt-0">
+                    {project.liveLink && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                        className="gap-1 bg-transparent"
+                      >
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="mr-1 h-4 w-4" /> Live Demo
+                        </a>
+                      </Button>
+                    )}
+                    {project.githubLink && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                        className="gap-1 bg-transparent"
+                      >
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="mr-1 h-4 w-4" /> GitHub
+                        </a>
+                      </Button>
+                    )}
                     <Button
                       variant="outline"
                       size="sm"
                       asChild
-                      className="gap-1 bg-transparent">
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <ExternalLink className="mr-1 h-4 w-4" /> Live Demo
-                      </a>
+                      className="gap-1 bg-transparent"
+                    >
+                      <Link to={`/projects/${project.slug}`}>
+                        <Eye /> View Detail
+                      </Link>
                     </Button>
-                  )}
-                  {project.githubLink && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      asChild
-                      className="gap-1 bg-transparent">
-                      <a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <Github className="mr-1 h-4 w-4" /> GitHub
-                      </a>
-                    </Button>
-                  )}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    asChild
-                    className="gap-1 bg-transparent">
-                    <Link to={`/projects/${project.slug}`}>
-                      <Eye /> View Detail
-                    </Link>
-                  </Button>
-                </div>
-              </Card>
-            ))}
+                  </div>
+                </Card>
+              ))}
           </div>
           <div className="pt-4 text-center">
             <Button asChild>
@@ -321,8 +332,8 @@ export default function Home() {
               <Link to="/contact">Get in Touch</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="/resume.pdf" target="_blank">
-                View Resume
+              <a href="/assets/resume/resume_rakhel-cakra.pdf" download>
+                Download Resume
               </a>
             </Button>
           </div>

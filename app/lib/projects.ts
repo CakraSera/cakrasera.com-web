@@ -22,8 +22,6 @@ export type ProjectCategory =
   | "Fullstack"
   | "Frontend"
   | "Backend"
-  | "Mobile"
-  | "Learning"
   | "Bootcamp"
   | "Other";
 
@@ -62,4 +60,10 @@ export const skillIcons: { [key: string]: LucideIcon } = {
   "Health APIs": Plug,
   Prisma: Database,
   "React Native": Smartphone,
+  "Hono Js": Server,
+  Golang: Code,
+  "Vue.js": Code,
+  "Nuxt.js": Code,
+  MySQL: Database,
+  "React Router Framework v7": Globe,
 };

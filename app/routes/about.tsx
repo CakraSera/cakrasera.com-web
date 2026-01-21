@@ -87,7 +87,8 @@ export default function AboutPage() {
                   <p className="text-sm text-muted-foreground">Contact</p>
                   <a
                     href="mailto:rakelsera2001@gmail.com"
-                    className="font-medium hover:text-primary transition-colors">
+                    className="font-medium hover:text-primary transition-colors"
+                  >
                     rakelsera2001@gmail.com
                   </a>
                 </div>
@@ -234,7 +235,7 @@ export default function AboutPage() {
                     items: [
                       {
                         icon: Atom,
-                        text: "React Js, React Router Framework, Express Js, Hono Js",
+                        text: "Next.js, React Js, React Router Framework, Express Js, Hono Js",
                       },
                       { icon: Code, text: "Tailwind, Shadcn UI" },
                     ],
@@ -254,13 +255,15 @@ export default function AboutPage() {
                 ].map((card, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl border bg-background/60 p-5 sm:p-6 shadow-sm">
+                    className="rounded-xl border bg-background/60 p-5 sm:p-6 shadow-sm"
+                  >
                     <h3 className="text-lg font-semibold">{card.title}</h3>
                     <ul className="mt-4 space-y-3">
                       {card.items.map((it, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-3 text-foreground/90">
+                          className="flex items-start gap-3 text-foreground/90"
+                        >
                           <it.icon className="h-4 w-4 text-primary mt-0.5" />
                           <span className="text-sm sm:text-base">
                             {it.text}

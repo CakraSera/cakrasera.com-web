@@ -13,9 +13,7 @@ export default function Projects() {
     "Fullstack",
     "Frontend",
     "Backend",
-    "Mobile",
     "Bootcamp",
-    "Learning",
     "Other",
   ];
   const [selectedCategory, setSelectedCategory] =
