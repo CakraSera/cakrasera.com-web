@@ -13,8 +13,7 @@ export default function Projects() {
     "Fullstack",
     "Frontend",
     "Backend",
-    "Bootcamp",
-    "Other",
+    "AI/ML",
   ];
   const [selectedCategory, setSelectedCategory] =
     useState<ProjectCategory>("All");

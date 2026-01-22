@@ -6,6 +6,7 @@ export type ProjectCategory =
   | "Mobile"
   | "Learning"
   | "Bootcamp"
+  | "AI/ML"
   | "Other";
 
 export interface Project {
